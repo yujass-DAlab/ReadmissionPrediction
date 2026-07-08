@@ -67,10 +67,7 @@ Frontend UI	Gradio, Streamlit
 Security	  API Key Headers, IAM Roles
 
 🧠 Project Architecture
-<img width="700" height="500" alt="Capture" src="https://github.com/user-attachments/assets/e209d7e3-45a7-41a5-9002-8e0602a72e4d" />
-
-
-
+<img width="800" height="800" alt="ProjectArchitecture" src="https://github.com/user-attachments/assets/08125db7-2f47-4009-840d-f98f5799a2f5" />
 
 
 
@@ -146,12 +143,12 @@ Slack Bot Interface
 
 
 Swagger UI (API Docs)
-https://screenshots/swagger_ui.png
+<img width="800" height="800" alt="DockerLowrisk" src="https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454" />
+
 
 Gradio UI (Quick Test)
-https://screenshots/gradio_ui.png
+<img width="746" height="847" alt="GradioReadmissionPrediction" src="https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001" />
 
-(Replace the placeholder image paths with your actual screenshots).
 
 🔮 Future Improvements
 SSL/HTTPS – Add a free Let's Encrypt certificate.
