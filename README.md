@@ -143,11 +143,11 @@ Slack Bot Interface:
 
 
 Swagger UI (API Docs):
-<img width="700" height="700" alt="DockerLowrisk" src="https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454" />
+![Slack Bot Demo](https://github.comuser-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454)
 
 
 Gradio UI (Quick Test):
-<img width="700" height="700" alt="GradioReadmissionPrediction" src="https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001" />
+![Slack Bot Demo](https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001)
 
 
 🔮 Future Improvements
