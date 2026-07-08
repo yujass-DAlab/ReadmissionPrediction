@@ -67,7 +67,7 @@ Frontend UI	Gradio, Streamlit
 Security	  API Key Headers, IAM Roles
 
 🧠 Project Architecture
-
+<img width="700" height="500" alt="Capture" src="https://github.com/user-attachments/assets/e209d7e3-45a7-41a5-9002-8e0602a72e4d" />
 
 
 
@@ -142,7 +142,8 @@ Deploy to EC2: ssh -i key.pem ec2-user@<ip> → docker pull → docker run
 
 📸 Screenshots
 Slack Bot Interface
-https://screenshots/slack_demo.png
+![Slack Bot Demo](https://github.com/user-attachments/assets/f62c2423-52f0-4e49-962d-0b3b996a4b2b)
+
 
 Swagger UI (API Docs)
 https://screenshots/swagger_ui.png
