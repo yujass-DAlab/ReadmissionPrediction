@@ -138,16 +138,16 @@ Deploy to EC2: ssh -i key.pem ec2-user@<ip> → docker pull → docker run
 (Full deployment scripts are available upon request.)
 
 📸 Screenshots
-Slack Bot Interface
+Slack Bot Interface:
 ![Slack Bot Demo](https://github.com/user-attachments/assets/f62c2423-52f0-4e49-962d-0b3b996a4b2b)
 
 
-Swagger UI (API Docs)
-<img width="800" height="800" alt="DockerLowrisk" src="https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454" />
+Swagger UI (API Docs):
+<img width="700" height="700" alt="DockerLowrisk" src="https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454" />
 
 
-Gradio UI (Quick Test)
-<img width="746" height="847" alt="GradioReadmissionPrediction" src="https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001" />
+Gradio UI (Quick Test):
+<img width="700" height="700" alt="GradioReadmissionPrediction" src="https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001" />
 
 
 🔮 Future Improvements
