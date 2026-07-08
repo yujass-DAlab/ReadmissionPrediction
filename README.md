@@ -30,7 +30,7 @@ Future Improvements
 Acknowledgments
 
 📌 Overview
-This project is a complete end-to-end healthcare AI system that predicts 30-day hospital readmission risk using a Stacking Ensemble of XGBoost, LightGBM, and CatBoost.
+This project is a complete end-to-end healthcare AI system that predicts 30-day hospital readmission risk using a Stacking Ensemble of XGBoost, LightGBM, and CatBoost. The The trained MODEL (readmission_stack_ensemble_final.pkl) is EXCLUDED from this repository due to its large size (84 MB).
 
 The system is designed for real-world clinical use:
 
