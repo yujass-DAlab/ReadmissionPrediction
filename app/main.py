@@ -216,3 +216,4 @@ async def root():
         "docs": "/docs",
         "health": "/health"
     }
+    }
