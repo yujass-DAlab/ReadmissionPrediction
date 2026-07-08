@@ -143,7 +143,7 @@ Slack Bot Interface:
 
 
 Swagger UI (API Docs):
-![Slack Bot Demo](https://github.comuser-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454)
+![Slack Bot Demo](https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454)
 
 
 Gradio UI (Quick Test):
