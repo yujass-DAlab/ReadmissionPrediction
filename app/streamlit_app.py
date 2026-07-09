@@ -136,4 +136,3 @@ st.markdown(
     "observed across diverse patient populations. It is intended for **decision-support purposes only** and should "
     "be interpreted alongside the **individual patient's** current clinical condition and professional judgment."
 )
-)

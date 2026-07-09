@@ -105,4 +105,3 @@ with gr.Blocks(title="Readmission Risk Predictor, Decision Support", theme=gr.th
     "be interpreted alongside the **individual patient's** current clinical condition and professional judgment.")
 if __name__ == "__main__":
     demo.launch(share=True, server_name="0.0.0.0", server_port=7860)
-    demo.launch(share=True, server_name="0.0.0.0", server_port=7860)
