@@ -30,7 +30,7 @@ Future Improvements
 Acknowledgments
 
 📌 Overview
-This project is a complete end-to-end healthcare AI system that predicts 30-day hospital readmission risk using a Stacking Ensemble of XGBoost, LightGBM, and CatBoost. The The trained MODEL (readmission_stack_ensemble_final.pkl) is EXCLUDED from this repository due to its large size (84 MB).
+This project is a complete end-to-end healthcare AI system that predicts 30-day hospital readmission risk using a Stacking Ensemble of XGBoost, LightGBM, and CatBoost. The trained MODEL (readmission_stack_ensemble_final.pkl) is EXCLUDED from this repository due to its large size (84 MB).
 
 The system is designed for real-world clinical use:
 
@@ -40,7 +40,7 @@ Data scientists can query the FastAPI backend directly.
 
 Recruiters and stakeholders can test it via a Gradio UI (public demo link).
 
-The model achieved 86% recall on the critical <30 days> readmission class, making it a powerful decision-support tool for discharge planning.
+The model achieved 86% recall on the critical <30 days> readmission class, making it a prototype clinical decision-support tool for discharge planning.
 
 🚀 Key Features
 ✅ 86% Recall on high-risk <30 days> readmissions.
@@ -141,27 +141,29 @@ Deploy to EC2: ssh -i key.pem ec2-user@<ip> → docker pull → docker run
 Slack Bot Interface:
 ![Slack Bot Demo](https://github.com/user-attachments/assets/f62c2423-52f0-4e49-962d-0b3b996a4b2b)
 
-
 Swagger UI (API Docs):
 ![Slack Bot Demo](https://github.com/user-attachments/assets/15c807db-6a32-4023-a48f-6f30437f3454)
-
 
 Gradio UI (Quick Test):
 ![Slack Bot Demo](https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001)
 
+⚠️ Limitations
+ Educational project
+ Public curated dataset 
+ Not clinically validated
+ Decision support only
 
 🔮 Future Improvements
 SSL/HTTPS – Add a free Let's Encrypt certificate.
-
 User Authentication – Add role-based access (e.g., admin, clinician).
-
-Monitoring – Add logging and alerting (e.g., Sentry, AWS CloudWatch).
-
+Monitoring – Add logging and alerting (e.g., Sentry, Probability calibration, Detect model/calibration/workflow drifts).
 CI/CD Pipeline – Automate ECR push and EC2 redeployment with GitHub Actions.
 
-👩‍⚕️ Acknowledgments
-This project was built with extensive clinical guidance and domain expertise. Special thanks to the open-source community for tools like FastAPI, Docker, and the Slack Bolt SDK.
+🧠 What I learned
+This project taught me that successful healthcare AI extends far beyond model training. Building the model was only the first step. Deploying it through FastAPI, Docker, AWS, and Slack demonstrated the importance of software engineering, workflow integration, monitoring, security, and user experience. One of the most valuable lessons came from identifying data leakage after an initially unrealistic model result. That experience reinforced the importance of validating assumptions and data integrity before trusting metrics.
 
+👩‍⚕️ Acknowledgments
+This project was built with extensive clinical guidance and domain expertise. Special thanks to the open-source community for tools like FastAPI, Docker,the Slack Bolt SDK and to the contributors of the alexkstern/fine_tune_patient_diagnoses dataset for providing a rich foundation for this healthcare AI exploration.
 Built with ❤️ for better patient outcomes.
 
 📫 Contact
