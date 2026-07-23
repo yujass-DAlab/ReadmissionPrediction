@@ -146,7 +146,7 @@ Swagger UI (API Docs):
 Gradio UI (Quick Test):
 ![Slack Bot Demo](https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001)
 
-AWS Deployment:
+AWS Projects Side by Side:
 <img width="1899" height="1010" alt="AWS2Projects" src="https://github.com/user-attachments/assets/f253f281-8386-4778-82b0-1725290b1deb" />
 
 ⚠️ Limitations:
