@@ -80,7 +80,7 @@ Why 86% Recall Matters:
 The model prioritizes catching high-risk patients over avoiding false alarms. In clinical settings, missing a single high-risk patient costs hospitals ~$20,000+ in CMS penalties, while a false alarm costs ~$200 in extra monitoring. This trade-off is intentional and clinically validated.
 
 🌐 Live Endpoints
-Swagger UI (API Documentation): http://52.15.208.206/docs
+Swagger UI (API Documentation): http://52.15.208.206:8080/docs
 
 Gradio UI (Demo): See local setup instructions below
 
@@ -145,6 +145,9 @@ Swagger UI (API Docs):
 
 Gradio UI (Quick Test):
 ![Slack Bot Demo](https://github.com/user-attachments/assets/cae33e63-19f1-401c-bc48-7a565642e001)
+
+AWS Deployment:
+<img width="1899" height="1010" alt="AWS2Projects" src="https://github.com/user-attachments/assets/f253f281-8386-4778-82b0-1725290b1deb" />
 
 ⚠️ Limitations:
  Educational project; 
