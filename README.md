@@ -80,7 +80,7 @@ Why 86% Recall Matters:
 The model prioritizes catching high-risk patients over avoiding false alarms. In clinical settings, missing a single high-risk patient costs hospitals ~$20,000+ in CMS penalties, while a false alarm costs ~$200 in extra monitoring. This trade-off is intentional and clinically validated.
 
 🌐 Live Endpoints
-Swagger UI (API Documentation): http://52.15.208.206:8080/docs
+Swagger UI (API Documentation): http://18.225.32.182:7865/docs
 
 Gradio UI (Demo): See local setup instructions below
 
