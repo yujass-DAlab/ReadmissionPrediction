@@ -1,0 +1,34 @@
+🚀 How to Restart Your Dockerized API for a Demo
+Step 1: Open Command Prompt
+
+Press Windows Key + R, type cmd, and hit Enter.
+
+Step 2: Run the Container
+(Type this exactly and hit Enter)
+
+bash
+docker run -d -p 8000:8000 --name readmission-app readmission-api
+That's it!
+The -d flag runs it in the background (so the Command Prompt doesn't lock up), and it will start serving predictions instantly.
+
+🔍 Quick Sanity Checks (While the Demo is Running)
+What to check	Command to type	What to look for
+Is the container alive?	docker ps	You should see a container named readmission-app with status "Up".
+Is the API responsive?	Open your browser to http://127.0.0.1:8000/docs	The Swagger UI should load instantly.
+🛑 How to Shut It Down (After the Demo)
+If you want to stop the container so it releases the port (or just to be tidy), type this:
+
+bash
+docker stop readmission-app
+⚠️ The "Name Already Exists" Trap (And how to bypass it)
+If you run the docker run command a second time without stopping the first one, Docker will yell at you:
+"The container name "/readmission-app" is already in use".
+
+The easy fix: If you just want to restart it for a demo, run this one-liner that removes the old one and starts a fresh one in one go:
+
+bash
+docker rm -f readmission-app && docker run -d -p 8000:8000 --name readmission-app readmission-api
+(This forcefully removes any existing container and starts a brand new one in the background).
+
+💡 Pro Tip for Your Demo
+Keep that Command Prompt window open in the background. When someone asks "Is it running right now?" you can just alt-tab to the CMD, run docker ps, and show them the green "Up" status. It makes you look like a total pro.

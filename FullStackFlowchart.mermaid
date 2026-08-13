@@ -1,0 +1,46 @@
+graph TD
+    subgraph S1[1. Data Science & Modeling]
+        A[Raw EHR Data] --> B[Fix Data Leak<br>(Removed 'Classification: X')]
+        B --> C[Feature Engineering<br>(Age, Labs, ICD-9, Visits)]
+        C --> D[Train Stacking Ensemble<br>(XGB + LGB + CatBoost)]
+        D --> E[86% Recall Model<br>Saved as .pkl]
+    end
+
+    subgraph S2[2. Backend & API]
+        E --> F[FastAPI App<br>(main.py)]
+        F --> G[Docker Container<br>(Dockerfile + requirements)]
+        G --> H[Push to AWS ECR]
+    end
+
+    subgraph S3[3. Cloud Deployment]
+        H --> I[AWS EC2 Instance<br>(t3.micro)]
+        I --> J[Run Docker Container<br>`sudo docker run -p 80:8000`]
+        J --> K[✅ Live API Endpoint<br>`http://52.15.208.206/predict`]
+    end
+
+    subgraph S4[4. Frontend & Integration]
+        K --> L[Gradio UI<br>(Quick Demo)]
+        K --> M[Streamlit Dashboard<br>(Bar Charts)]
+        K --> N[Slack Bot<br>(Real-time Chat)]
+    end
+
+    subgraph S5[5. Slack Bot Internals]
+        N --> O[User types mention<br>`@Readmission Predictor predict...`]
+        O --> P[Slack Sends Event<br>(Socket Mode)]
+        P --> Q[EC2 Server Receives Event]
+        Q --> R[Regex removes bot ID & extracts text]
+        R --> S{Contains `predict`/`analyze`?}
+        S -- No --> T[Reply: Help message]
+        S -- Yes --> U[Build JSON & POST to AWS API]
+        U --> V[Parse Prediction & Probabilities]
+        V --> W[Reply to Slack with Emojis & Alert]
+    end
+
+    subgraph S6[6. 24/7 Persistence]
+        Q -.-> X[tmux Session<br>`tmux new -s slackbot`]
+        X -.-> Y[Bot runs even if CMD closes]
+    end
+
+    style K fill:#51cf66,stroke:#333,stroke-width:2px
+    style S fill:#ffeb3b,stroke:#333,stroke-width:2px
+    style Y fill:#4dabf7,stroke:#333,stroke-width:2px

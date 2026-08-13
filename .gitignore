@@ -1,0 +1,40 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.tmp
+.gradio/
+
+# Secrets (never commit these)
+*.pem
+*.key
+*.env
+*.tknFinal.txt
+SlackOAuthToken.txt
+ngrok.txt
+
+# Large model files (not needed in Git)
+*.pkl
+*.b64.txt
+model_b64.txt
+readmission_stack_ensemble_final.pkl
+
+# Ngrok files
+ngrok.exe
+ngrok-v3-stable-windows-amd64.zip
+
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Old / test files (optional – you can keep them locally)
+API navigate and Launch
+Requirement.txt.txt

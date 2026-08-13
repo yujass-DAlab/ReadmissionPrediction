@@ -1,0 +1,72 @@
+📝 Slack Bot "Cheat Sheet" (Copy this for your notes)
+Action	What to type in Slack
+Get a prediction	@Readmission Predictor predict [paste patient text]
+Alternative commands	analyze or risk (same as predict)
+See the help menu	@Readmission Predictor hello (or any non-command word)
+Example full message:
+
+text
+@Readmission Predictor predict Patient's context Race: Caucasian. Gender: Female. Age: [20-30)...
+✅ Status Update (Where we are right now)
+Component	Status
+Slack Bot	🟢 Running 24/7 on AWS EC2
+Command System	🟢 Works (predict triggers API, hello triggers help)
+AWS API	🟢 Live at http://52.15.208.206/predict
+Gradio UI	🟢 Available (if you restart ngrok)
+Streamlit UI	🟢 Available (if you restart ngrok)
+Terminal Multiplexer（终端复用器）。
+
+简单来说，tmux 就像一个“终端里的窗口管理器
+常用命令速查表
+为了方便你以后快速上手，我把最常用的命令整理成了一个表格：
+
+操作目的	命令或快捷键
+启动一个新会话	tmux new -s <会话名称> 
+列出所有会话	tmux ls 
+重新连接到一个会话	tmux attach -t <会话名称> 
+从会话中分离（Detach）	在 tmux 会话中，按 Ctrl+B 然后按 D 
+终止一个会话	tmux kill-session -t <会话名称> 
+垂直分割窗口	在 tmux 会话中，按 Ctrl+B 然后按 % 
+水平分割窗口	在 tmux 会话中，按 Ctrl+B 然后按 " 
+切换到下一个窗口	在 tmux 会话中，按 Ctrl+B 然后按 N 
+切换到上一个窗口	在 tmux 会话中，按 Ctrl+B 然后按 P 
+
+Text-Only Quick Reference (For when you don't have Mermaid)
+If you just want a simple text snapshot for your notes:
+
+The Data Path:
+
+Raw EHR → Fixed Leak → Feature Engineering → Stacking Ensemble (86% recall) → .pkl Model.
+
+.pkl Model → FastAPI → Docker → AWS ECR.
+
+ECR → AWS EC2 (sudo docker run) → Live API at http://52.15.208.206.
+
+The User Path (Slack):
+
+User types: @Readmission Predictor predict [Patient Text].
+
+Slack sends event via Socket Mode to your EC2 server.
+
+Bot extracts text, removes the @mention, validates the predict command.
+
+Bot calls AWS API http://52.15.208.206/predict.
+
+AWS API returns JSON (Risk Class, Probabilities, Alert).
+
+Bot formats it with Emojis (🔴🟡🟢) and sends it back to Slack.
+
+The "Magic" (tmux):
+
+tmux keeps the bot running 24/7 on EC2, independent of your laptop.
+
+💾 How to Save This
+Copy the Mermaid code (the block starting with graph TD).
+
+Go to mermaid.live.
+
+Paste the code on the left panel.
+
+Click "Download as PNG" or "Download as SVG".
+
+Save it to your C:\readmission_api folder as Full_System_Architecture.png.

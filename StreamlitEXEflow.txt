@@ -1,0 +1,51 @@
+📋 The Exact "Streamlit Deployment" Process
+Step 0: Install Streamlit (One-time setup)
+
+cmd
+python -m pip install streamlit pandas requests
+(Skip if already installed).
+
+Step 1: Place the file in the right folder
+
+Save streamlit_app.py in your C:\readmission_api folder (you already did this).
+
+Step 2: Open Window 1 (The Engine)
+
+cmd
+cd C:\readmission_api
+python -m streamlit run streamlit_app.py
+(This bypasses the "streamlit not recognized" error).
+
+Wait for it to say: You can now view your Streamlit app in your browser. 
+Local URL: http://localhost:8501
+Network URL: http://192.168.1.153:8501
+
+Keep this window open.
+
+Step 3: Open Window 2 (The Public Tunnel)
+
+cmd
+cd C:\readmission_api
+ngrok http 8501
+(Notice the port is 8501 for Streamlit, NOT 7860 like Gradio).
+
+Wait for it to say: Forwarding https://xxxx.ngrok-free.dev -> http://localhost:8501
+
+Keep this window open.
+
+Step 4: Share the public link
+
+Copy the https://xxxx.ngrok-free.dev URL from Window 2.
+
+Paste it into your browser, LinkedIn, or send it to anyone.
+
+🧠 Quick Comparison (So you don't mix them up)
+App	File	Port	Run Command
+Gradio	gradio_app.py	7860	python gradio_app.py
+Streamlit	streamlit_app.py	8501	python -m streamlit run streamlit_app.py
+
+🛑 How to shut it down
+Window 1: Press CTRL + C.
+
+Window 2: Press CTRL + C.
+

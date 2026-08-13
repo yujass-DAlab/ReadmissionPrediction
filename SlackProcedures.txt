@@ -1,0 +1,108 @@
+📝 The Corresponding Code (Block-by-Block)
+Here is your slack_bot.py file broken down so each piece matches the flowchart step above.
+
+Block 1: The Configuration (The Boilerplate)
+python
+import os
+import re
+import requests
+from slack_bolt import App
+from slack_bolt.adapter.socket_mode import SocketModeHandler
+
+# --- Configuration ---
+SLACK_BOT_TOKEN = "xoxb-..."  # Identifies the bot user
+SLACK_APP_TOKEN = "xapp-..."  # Enables Socket Mode connection
+API_URL = "http://18.225.32.182/predict"  # Your AWS backend
+What it does: Loads the keys needed to talk to Slack and your AWS API.
+
+Block 2: The Engine Startup (Initializes the App)
+python
+app = App(token=SLACK_BOT_TOKEN)
+What it does: Creates the Slack bot object. This connects to Slack using the Bot Token.
+
+Block 3: The Event Listener (The Trigger)
+python
+@app.event("app_mention")
+def handle_mention(event, say):
+What it does: This is the "ear" of the bot. It waits for the app_mention event (when someone uses @Readmission Predictor). When it hears that, it wakes up and runs the function below.
+
+Block 4: The Text Cleaner (Parsing the Input)
+python
+    user_text = event.get('text', '')
+    clean_text = re.sub(r'<@[A-Z0-9]+>', '', user_text).strip()
+    
+    if not clean_text:
+        say("Please provide a patient context...")
+        return
+What it does:
+
+Grabs the raw message text.
+
+Uses regex (re.sub) to strip out the bot's user ID (e.g., <@U12345>), leaving only the patient text.
+
+If the user only mentioned the bot with no text, it politely asks them to provide a patient context.
+
+Block 5: The API Call (The Bridge to AWS)
+python
+    payload = {
+        "patient_id": "slack_user_001",
+        "clinical_text": clean_text
+    }
+    
+    try:
+        response = requests.post(API_URL, json=payload, timeout=30)
+What it does: Builds the exact JSON payload your FastAPI AWS endpoint expects, and sends it over the internet. timeout=30 ensures it waits up to 30 seconds for a reply.
+
+Block 6: The Response Parser (Extracts the Prediction)
+python
+    if response.status_code == 200:
+        data = response.json()
+        risk_class = data.get("risk_class", "Unknown")
+        probs = data.get("probabilities", {})
+        alert = data.get("risk_alert", False)
+What it does: If AWS says "OK", it pulls the risk_class (e.g., <30 days), the probability scores, and the risk_alert flag out of the JSON returned by your model.
+
+Block 7: The Message Formatter (Translates to English)
+python
+        emoji = "🔴" if risk_class == "<30 days" else "🟡" if risk_class == ">30 days" else "🟢"
+        alert_text = "🚨 **HIGH RISK**" if alert else "✅ **Low Risk**"
+        prob_text = f"NO: {probs.get('NO', 0):.1%}, >30 days: {probs.get('>30 days', 0):.1%}, <30 days: {probs.get('<30 days', 0):.1%}"
+        
+        result = (
+            f"{emoji} *Predicted Risk Class:* {risk_class}\n"
+            f"{alert_text}\n"
+            f"*Probabilities:* {prob_text}\n"
+            f"_Disclaimer: This is a decision-support tool. Do not replace clinical judgment._"
+        )
+        say(result)
+What it does:
+
+Picks the right emoji based on the risk.
+
+Formats the probabilities to 1 decimal place (e.g., 57.4%).
+
+Builds a clean, visually scannable block of text.
+
+Block 8: The Error Handler (Plays it safe)
+python
+    except requests.exceptions.ConnectionError:
+        say("❌ Connection Error: Could not reach the AWS API...")
+    except Exception as e:
+        say(f"❌ Unexpected Error: {str(e)}")
+What it does: If AWS is down or the internet is spotty, it tells the user there's a problem instead of crashing the whole bot.
+
+Block 9: The Starter (The "Ignition Key")
+python
+if __name__ == "__main__":
+    handler = SocketModeHandler(app, SLACK_APP_TOKEN)
+    handler.start()
+What it does: This is the loop that keeps the bot alive. It ties your App to the Socket Mode connection and tells it to start listening indefinitely.
+
+🧠 The "Golden Rule" of This Bot
+The bot does not "think." It is simply a messenger.
+
+It takes your text.
+
+It hands it to your AWS model.
+
+It takes the AWS answer and reads it out loud in Slack.

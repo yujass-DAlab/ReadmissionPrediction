@@ -1,0 +1,44 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets (never bake these into the image)
+*.pem
+*.key
+*.env
+*.tknFinal.txt
+SlackOAuthToken.txt
+ngrok.txt
+
+# Large model files (not needed in the container)
+*.pkl
+*.b64.txt
+model_b64.txt
+readmission_stack_ensemble_final.pkl
+
+# Ngrok files
+ngrok.exe
+ngrok-v3-stable-windows-amd64.zip
+
+# Git files
+.git/
+.gitignore
+.dockerignore
+
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Temporary / test files
+API navigate and Launch
+Requirement.txt.txt
+*.log
+*.tmp
