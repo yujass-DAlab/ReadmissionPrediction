@@ -1,3 +1,0 @@
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 859816906087.dkr.ecr.us-east-2.amazonaws.com
-docker tag readmission-api:latest 859816906087.dkr.ecr.us-east-2.amazonaws.com/readmission-api:latest
-docker push 859816906087.dkr.ecr.us-east-2.amazonaws.com/readmission-api:latest

@@ -1,3 +1,0 @@
-# Write the Dockerfile and requirements.txt in C:\api
-docker build -t readmission-api .
-docker run -p 8000:8000 readmission-api  # Test locally
