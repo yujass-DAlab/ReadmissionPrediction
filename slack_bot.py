@@ -5,8 +5,8 @@ from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 # --- Configuration ---
-SLACK_BOT_TOKEN = "xoxb-11533496944480-11509776718164-6yMlGviwc2gG8MvjcB83dhFA"
-SLACK_APP_TOKEN = "xapp-1-A0BFQAE4FMW-11502731192373-0a6402769e1ff80b975437068c68cb468454af1221bcc48aef3796304b23d013"
+SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
+SLACK_APP_TOKEN =os.getenv("SLACK_BOT_TOKEN") 
 API_URL = "http://18.225.32.182/predict"
 
 # --- Initialize the app ---
