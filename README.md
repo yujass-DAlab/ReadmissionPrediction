@@ -105,8 +105,8 @@ pip install -r app/requirements.txt
 Set Up Environment Variables
 Create a .env file in the root directory:
 env
-SLACK_BOT_TOKEN=xoxb-...
-SLACK_APP_TOKEN=xapp-...
+SLACK_BOT_TOKEN=<your-slack-bot-token>
+SLACK_APP_TOKEN=<your-slack-app-token>
 API_KEY=supersecretkey123
 
 Run the FastAPI Backend
